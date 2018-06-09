@@ -1,40 +1,31 @@
-# Projects
-from django.contrib.auth.models import Permission, User
-from django.db import models
+![](http://i.imgur.com/YiFZyuW.png)
 
+# What is Viberr?
 
-class Album(models.Model):
-    user = models.ForeignKey(User, default=1)
-    artist = models.CharField(max_length=250)
-    album_title = models.CharField(max_length=500)
-    genre = models.CharField(max_length=100)
-    album_logo = models.FileField()
-    is_favorite = models.BooleanField(default=False)
+Viberr is an application that let's you upload, store, and play all of your music from the cloud. You can now manage and listen to your music from any device, anywhere in the world. 
 
-    def __str__(self):
-        return self.album_title + ' - ' + self.artist
+![](http://i.imgur.com/9Ix2CbR.png)
 
+## How does it work?
 
-class Song(models.Model):
-    album = models.ForeignKey(Album, on_delete=models.CASCADE)
-    song_title = models.CharField(max_length=250)
-    audio_file = models.FileField(default='')
-    is_favorite = models.BooleanField(default=False)
+To get started, first create a new album. When adding an album cover logo, it's best to have a resolution of at least 512x512 and to use common image formats such as JPG, JPEG, or PNG.
 
-    def __str__(self):
-        return self.song_title
+![](http://i.imgur.com/RsGZfUq.png)
 
-class Artist(models.Model):
-    category=models.CharField(max_length=50)
-    no_of_albums=models.IntegerField(max_length=50)
+## Adding Songs
 
-class Record_Company(models.Model):
-    name=models.CharField(max_length=50)
-    address=models.CharField(max_length=50)
-    phone=models.IntegerField(max_length=10)
+After an album is created you will then be able to add/upload songs. Currently supported file types are WAV, MP3, and OGG.
 
-class User(models.Model):
-    username=models.CharField(max_length=50)
-    email_id=models.CharField(max_length=50)
-    password=models.CharField(max_length=50)
+![](http://i.imgur.com/gTNrnV6.png)
 
+## My Songs
+
+Once songs are added to an album you are then able to play, favorite, and delete them.
+
+![](http://i.imgur.com/ggcgbz0.png)
+
+## Searching
+
+You can also search for music using the search feature at the top of every page. Any relevant albums will appear at the top of the results page, and the results for individual songs will appear below. 
+
+![](http://i.imgur.com/kfkFA3N.png)
